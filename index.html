@@ -1,627 +1,271 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="icon" href="img/favicon.png" type="image/png">
-	<title>Cuong - Devops Specialist </title>
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="vendors/linericon/style.css">
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/magnific-popup.css">
-	<link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
-	<!-- main css -->
-	<link rel="stylesheet" href="css/style.css">
-<script data-ad-client="ca-pub-4779660304680031" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-</head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuong Nguyen — Site Reliability Engineer</title>
+<meta name="description" content="Cuong Nguyen Duc — Site Reliability Engineer in Ho Chi Minh City. Kubernetes, GCP/AWS, GitOps, Terraform, observability and cloud cost.">
+<meta property="og:title" content="Cuong Nguyen — Site Reliability Engineer">
+<meta property="og:description" content="Kubernetes, GCP/AWS, GitOps, Terraform, observability and cloud cost.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230f172a'/><text x='50%25' y='56%25' font-family='monospace' font-size='30' font-weight='700' fill='%2322d3ee' text-anchor='middle'>cn</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f8fafc; --surface:#ffffff; --text:#0f172a; --muted:#475569; --faint:#94a3b8;
+  --line:#e2e8f0; --accent:#0891b2; --accent-soft:#ecfeff; --chip:#f1f5f9;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#0b1120; --surface:#111a2e; --text:#e2e8f0; --muted:#94a3b8; --faint:#64748b;
+    --line:#1e293b; --accent:#22d3ee; --accent-soft:#0e2a33; --chip:#16213a; }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:920px;margin:0 auto;padding:0 24px}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
 
+/* nav */
+nav{position:sticky;top:0;z-index:10;backdrop-filter:saturate(180%) blur(12px);background:color-mix(in srgb,var(--bg) 80%,transparent);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{font-weight:700;letter-spacing:-.02em}
+.brand span{color:var(--accent)}
+nav ul{display:flex;gap:22px;list-style:none;font-size:.92rem;color:var(--muted)}
+nav ul a:hover{color:var(--accent)}
+@media (max-width:620px){ nav ul{display:none} }
+
+/* hero */
+.hero{padding:88px 0 64px}
+.hero .tag{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;color:var(--accent);background:var(--accent-soft);padding:6px 12px;border-radius:999px;margin-bottom:22px}
+.hero .tag i{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px color-mix(in srgb,#22c55e 25%,transparent)}
+.hero h1{font-size:clamp(2.4rem,6vw,3.7rem);line-height:1.08;letter-spacing:-.035em;font-weight:800}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p.lead{margin-top:20px;font-size:1.15rem;color:var(--muted);max-width:640px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:10px;font-weight:600;font-size:.95rem;border:1px solid var(--line);background:var(--surface);transition:transform .15s,border-color .15s}
+.btn:hover{transform:translateY(-1px);border-color:var(--accent)}
+.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+@media (prefers-color-scheme: dark){ .btn.primary{color:#0b1120} }
+.btn svg{width:18px;height:18px}
+
+/* terminal card */
+.term{margin-top:48px;background:#0b1120;border:1px solid #1e293b;border-radius:14px;overflow:hidden;box-shadow:0 20px 50px -20px rgba(2,6,23,.5)}
+.term .bar{display:flex;gap:7px;padding:12px 14px;border-bottom:1px solid #1e293b}
+.term .bar b{width:11px;height:11px;border-radius:50%;background:#334155}
+.term .bar b:nth-child(1){background:#ef4444}.term .bar b:nth-child(2){background:#f59e0b}.term .bar b:nth-child(3){background:#22c55e}
+.term pre{padding:18px 20px;color:#cbd5e1;font-size:.86rem;line-height:1.75;overflow-x:auto}
+.term .p{color:#22d3ee}.term .k{color:#a78bfa}.term .ok{color:#4ade80}.term .c{color:#64748b}
+
+/* sections */
+section{padding:56px 0;border-top:1px solid var(--line)}
+.eyebrow{font-size:.8rem;text-transform:uppercase;letter-spacing:.14em;color:var(--accent);font-weight:600}
+h2{font-size:1.75rem;letter-spacing:-.025em;margin:6px 0 24px}
+.about p{color:var(--muted);font-size:1.05rem;max-width:720px}
+.about p+p{margin-top:14px}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
+.stat b{display:block;font-size:1.6rem;letter-spacing:-.02em}
+.stat span{color:var(--muted);font-size:.88rem}
+@media (max-width:620px){ .stats{grid-template-columns:1fr} }
+
+/* timeline */
+.job{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:22px 0;border-bottom:1px dashed var(--line)}
+.job:last-child{border-bottom:0}
+.job .when{color:var(--faint);font-size:.88rem;padding-top:3px}
+.job h3{font-size:1.08rem;letter-spacing:-.01em}
+.job .org{color:var(--accent);font-weight:600}
+.job ul{margin:10px 0 0 18px;color:var(--muted)}
+.job li{margin:4px 0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.chip{font-size:.78rem;padding:4px 9px;border-radius:6px;background:var(--chip);color:var(--muted);border:1px solid var(--line)}
+@media (max-width:620px){ .job{grid-template-columns:1fr;gap:4px} }
+
+/* skills */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
+.card h4{font-size:.95rem;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.card h4::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--accent)}
+
+/* certs */
+.certs{list-style:none;display:grid;gap:10px}
+.certs li{display:flex;justify-content:space-between;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.certs li span{color:var(--faint);font-size:.9rem;white-space:nowrap}
+
+/* contact */
+.contact p{color:var(--muted);max-width:600px}
+footer{padding:36px 0 48px;color:var(--faint);font-size:.85rem;border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+</style>
+</head>
 <body>
 
-	<!--================ Start Header Area =================-->
-	<header class="header_area">
-		<div class="main_menu">
-			<nav class="navbar navbar-expand-lg navbar-light">
-				<div class="container">
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt=""></a>
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-						<ul class="nav navbar-nav menu_nav justify-content-end">
-							<li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
-							<li class="nav-item"><a class="nav-link" href="Cuong-Nguyen-Duc-CV.pdf">CV</a></li>
-							<li class="nav-item"><a class="nav-link" href="https://docs.cuong-dev.ml/">Docs</a></li>
+<nav>
+  <div class="wrap">
+    <a class="brand mono" href="#">cuongnd<span>.is-a.dev</span></a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-							<!-- <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-							<li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li> -->
-							<!-- <li class="nav-item submenu dropdown">
-								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-								 aria-expanded="false">Pages</a>
-								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
-									<li class="nav-item"><a class="nav-link" href="portfolio-details.html">Portfolio Details</a></li>
-								</ul>
-							</li>
-							<li class="nav-item submenu dropdown">
-								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-								 aria-expanded="false">Blog</a>
-								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-									<li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
-								</ul>
-							</li> -->
-							<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-		</div>
-	</header>
-	<!--================ End Header Area =================-->
+<header class="hero">
+  <div class="wrap">
+    <div class="tag"><i></i> Site Reliability Engineer · Ho Chi Minh City</div>
+    <h1>Hi, I'm Cuong.<br>I keep <em>production</em> boring.</h1>
+    <p class="lead">Site Reliability Engineer with 9+ years running cloud infrastructure on GCP and AWS — Kubernetes, GitOps, infrastructure as code, observability, security and cloud cost.</p>
+    <div class="cta">
+      <a class="btn primary" href="#contact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+        Get in touch</a>
+      <a class="btn" href="https://github.com/cuong-nd" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.29-1.69-1.29-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>
+        GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/ndcuong" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+        LinkedIn</a>
+    </div>
 
-	<!--================ Start Home Banner Area =================-->
-	<section class="home_banner_area">
-		<div class="banner_inner">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-7">
-						<div class="banner_content">
-							<h3 class="text-uppercase">Hell0</h3>
-							<h1 class="text">I'm Cuong</h1>
-							<h5 class="text-uppercase">senior devops engineer</h5>
-							<div class="d-flex align-items-center">
-								<a class="primary_btn" href="contact.html"><span>Hire Me</span></a>
-								<a class="primary_btn tr-bg" href="Cuong-Nguyen-Duc-CV.pdf"><span>Get CV</span></a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-5">
-						<div class="home_right_img">
-							<img class="" src="img/banner/home-right.png" alt="">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!--================ End Home Banner Area =================-->
+    <div class="term" aria-hidden="true">
+      <div class="bar"><b></b><b></b><b></b></div>
+<pre class="mono"><span class="p">cuong@sre</span>:~$ <span class="k">whoami</span> --verbose
+role      site reliability engineer
+clouds    gcp · aws
+stack     kubernetes · argocd · terraform · vault
+cares     slo · safe rollouts · cost · least privilege
+<span class="p">cuong@sre</span>:~$ <span class="k">argocd</span> app sync --all <span class="c"># GitOps, always</span>
+<span class="ok">✔</span> synced · healthy · 0 pages tonight</pre>
+    </div>
+  </div>
+</header>
 
-	<!--================ Start About Us Area =================-->
-	<section class="about_area section_gap">
-		<div class="container">
-			<div class="row justify-content-start align-items-center">
-				<div class="col-lg-5">
-					<div class="about_img">
-						<img class="" src="img/about-us.png" alt="">
-					</div>
-				</div>
+<section id="about" class="about">
+  <div class="wrap">
+    <div class="eyebrow">About</div>
+    <h2>Reliability, automation, and a calm on-call.</h2>
+    <p>I design and run the platforms behind production systems: Kubernetes clusters, GitOps delivery, infrastructure as code, secrets management and observability across multiple countries and clouds.</p>
+    <p>Day to day I care about safe rollouts, measurable reliability, security hygiene (CVE remediation, least privilege) and keeping cloud spend honest. Lately I build AI-assisted automation to take the toil out of operations.</p>
+    <div class="stats">
+      <div class="stat"><b>9+ yrs</b><span>DevOps &amp; SRE</span></div>
+      <div class="stat"><b>GCP · AWS</b><span>Multi-cloud, multi-region</span></div>
+      <div class="stat"><b>GitOps</b><span>Kubernetes + ArgoCD everywhere</span></div>
+    </div>
+  </div>
+</section>
 
-				<div class="offset-lg-1 col-lg-5">
-					<div class="main_title text-left">
-						<h2>let’s <br>
-							Introduce about <br>
-							myself</h2>
-						<p>
-							Experienced DevOps Engineer with a demonstrated history of working in the information technology and services industry.
-						</p>
-						<p>
-							Skilled in DevOps, Linux, Amazon Web Services (AWS), GCP, CI/CD, Monitor, Web server. 
-						</p>
-						<p>
-							Strong engineering professional with a Bachelor's degree focused in Telecommunication and Networking from University of Information Technology. 
-						</p>
-						<a class="primary_btn" href="Cuong-Nguyen-Duc-CV.pdf"><span>Download CV</span></a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!--================ End About Us Area =================-->
+<section id="experience">
+  <div class="wrap">
+    <div class="eyebrow">Experience</div>
+    <h2>Where I've worked</h2>
 
-	<!--================ Srart Brand Area =================-->
-	<!-- <section class="brand_area section_gap_bottom">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-6">
-					<div class="row">
-						<div class="col-lg-4 col-md-4 col-sm-6">
-							<div class="single-brand-item d-table">
-								<div class="d-table-cell text-center">
-									<img src="img/brands/logo1.png" alt="">
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6">
-							<div class="single-brand-item d-table">
-								<div class="d-table-cell text-center">
-									<img src="img/brands/logo2.png" alt="">
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6">
-							<div class="single-brand-item d-table">
-								<div class="d-table-cell text-center">
-									<img src="img/brands/logo3.png" alt="">
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6">
-							<div class="single-brand-item d-table">
-								<div class="d-table-cell text-center">
-									<img src="img/brands/logo4.png" alt="">
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6">
-							<div class="single-brand-item d-table">
-								<div class="d-table-cell text-center">
-									<img src="img/brands/logo5.png" alt="">
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6">
-							<div class="single-brand-item d-table">
-								<div class="d-table-cell text-center">
-									<img src="img/brands/logo6.png" alt="">
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6">
-							<div class="single-brand-item d-table">
-								<div class="d-table-cell text-center">
-									<img src="img/brands/logo7.png" alt="">
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6">
-							<div class="single-brand-item d-table">
-								<div class="d-table-cell text-center">
-									<img src="img/brands/logo8.png" alt="">
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6">
-							<div class="single-brand-item d-table">
-								<div class="d-table-cell text-center">
-									<img src="img/brands/logo9.png" alt="">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="offset-lg-2 col-lg-4 col-md-6">
-					<div class="client-info">
-						<div class="d-flex mb-50">
-							<span class="lage">3</span>
-							<span class="smll">Years Experience In Devops</span>
-						</div>
-						<div class="call-now d-flex">
-							<div>
-								<span class="fa fa-phone"></span>
-							</div>
-							<div class="ml-15">
-								<p>call us now</p>
-								<h3>(+84)-969-013-080</h3>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section> -->
-	<!--================ End Brand Area =================-->
+    <div class="job">
+      <div class="when">Present</div>
+      <div>
+        <h3>Site Reliability Engineer · <span class="org">Trusting Social</span></h3>
+        <ul>
+          <li>Run a multi-country eKYC platform on GKE across several regions, including disaster-recovery sites.</li>
+          <li>GitOps delivery with ArgoCD and Helm; infrastructure as code with Terraform.</li>
+          <li>Secrets with HashiCorp Vault; observability with Datadog; cloud security and CVE remediation with Wiz.</li>
+          <li>FinOps: GPU and compute right-sizing, committed-use planning, cost dashboards.</li>
+        </ul>
+        <div class="chips"><span class="chip">GKE</span><span class="chip">ArgoCD</span><span class="chip">Terraform</span><span class="chip">Vault</span><span class="chip">Datadog</span><span class="chip">Wiz</span><span class="chip">FinOps</span></div>
+      </div>
+    </div>
 
-	<!--================ Start Features Area =================-->
-	<section class="features_area">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-8 text-center">
-					<div class="main_title">
-						<h2>service offers </h2>
-						<p>
-							We deliver highly technical trainings - teaching developers, operators, testers, pentesters and auditors how to build, maintain, and improve security focused, container based solutions in the cloud and on-premise. Our original, complex trainings are based on practical exercises using well established, cloud native and most effective tools available.
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="row feature_inner">
-				<div class="col-lg-3 col-md-6">
-					<div class="feature_item">
-						<img src="img/services/s1.png" alt="">
-						<h4>Continuous software delivery</h4>
-						<p>Our continuous integration systems support our customers in merging only quality source code to the production branch. We provide our customers with a set of analysis steps like static-code analysis, security tests, or unit and integration tests.</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<div class="feature_item">
-						<img src="img/services/s2.png" alt="">
-						<h4>Stable operating environments</h4>
-						<p>We support our customers in building and maintaining high-quality, service-oriented monitoring. Our designs are oriented on the customers' business-model and the very specific use-case.</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<div class="feature_item">
-						<img src="img/services/s3.png" alt="">
-						<h4>Improved communication and collaboration</h4>
-						<p>We help our customers with complete systems maintenance, infrastructure costs optimization, systems configuration, and we share our expertise to help choose the best technology for the very specific use-case.</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<div class="feature_item">
-						<img src="img/services/s4.png" alt="">
-						<h4>More time to innovate</h4>
-						<p>Combining with Agile/SCRUM, our DevOps solution can help you achieve shorter time-to-market, <br> higher productivity and efficiency, and more reliable releases.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!--================ End Features Area =================-->
+    <div class="job">
+      <div class="when">2019 — </div>
+      <div>
+        <h3>DevOps Engineer · <span class="org">Symphony Creative Solutions</span></h3>
+        <ul>
+          <li>Re-designed infrastructure to AWS best practices: scalable and highly available for all products.</li>
+          <li>Containerized applications and deployed to ECS / Kubernetes with Helm and a GitOps strategy.</li>
+          <li>Built centralized logging (ELK), monitoring and alerting; standardized Ansible roles.</li>
+        </ul>
+        <div class="chips"><span class="chip">AWS</span><span class="chip">Kubernetes</span><span class="chip">Helm</span><span class="chip">ArgoCD</span><span class="chip">Jenkins</span><span class="chip">Prometheus</span></div>
+      </div>
+    </div>
 
-	<!--================Start Portfolio Area =================-->
-	<section class="portfolio_area" id="portfolio">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="main_title text-left">
-						<h2>quality work <br>
-							Recently done project </h2>
-					</div>
-				</div>
-			</div>
-			<div class="filters portfolio-filter">
-				<ul>
-					<li class="active" data-filter="*">all</li>
-					<li data-filter=".popular">popular</li>
-					<li data-filter=".latest"> latest</li>
-					<li data-filter=".following">following</li>
-					<li data-filter=".upcoming">upcoming</li>
-				</ul>
-			</div>
-	
-			<div class="filters-content">
-				<div class="row portfolio-grid justify-content-center">
-					<div class="col-lg-4 col-md-6 all latest">
-						<div class="portfolio_box">
-							<div class="single_portfolio">
-								<img class="img-fluid w-100" src="img/portfolio/p1.jpg" alt="">
-								<div class="overlay"></div>
-								<a href="img/portfolio/p1.jpg" class="img-gal">
-									<div class="icon">
-										<span class="lnr lnr-cross"></span>
-									</div>
-								</a>
-							</div>
-							<div class="short_info">
-								<h4><a href="portfolio-details.html">minimal design</a></h4>
-								<p>Animated, portfolio</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 all popular">
-						<div class="portfolio_box">
-							<div class="single_portfolio">
-								<img class="img-fluid w-100" src="img/portfolio/p2.jpg" alt="">
-								<div class="overlay"></div>
-								<a href="img/portfolio/p2.jpg" class="img-gal">
-									<div class="icon">
-										<span class="lnr lnr-cross"></span>
-									</div>
-								</a>
-							</div>
-							<div class="short_info">
-								<h4><a href="portfolio-details.html">Paint wall</a></h4>
-								<p>Animated, portfolio</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 all latest">
-						<div class="portfolio_box">
-							<div class="single_portfolio">
-								<img class="img-fluid w-100" src="img/portfolio/p3.jpg" alt="">
-								<div class="overlay"></div>
-								<a href="img/portfolio/p3.jpg" class="img-gal">
-									<div class="icon">
-										<span class="lnr lnr-cross"></span>
-									</div>
-								</a>
-							</div>
-							<div class="short_info">
-								<h4><a href="portfolio-details.html">female light</a></h4>
-								<p>Animated, portfolio</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 all popular">
-						<div class="portfolio_box">
-							<div class="single_portfolio">
-								<img class="img-fluid w-100" src="img/portfolio/p4.jpg" alt="">
-								<div class="overlay"></div>
-								<a href="img/portfolio/p4.jpg" class="img-gal">
-									<div class="icon">
-										<span class="lnr lnr-cross"></span>
-									</div>
-								</a>
-							</div>
-							<div class="short_info">
-								<h4><a href="portfolio-details.html">fourth air</a></h4>
-								<p>Animated, portfolio</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 all following">
-						<div class="portfolio_box">
-							<div class="single_portfolio">
-								<img class="img-fluid w-100" src="img/portfolio/p6.jpg" alt="">
-								<div class="overlay"></div>
-								<a href="img/portfolio/p5.jpg" class="img-gal">
-									<div class="icon">
-										<span class="lnr lnr-cross"></span>
-									</div>
-								</a>
-							</div>
-							<div class="short_info">
-								<h4><a href="portfolio-details.html">together sign</a></h4>
-								<p>Animated, portfolio</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 all upcoming">
-						<div class="portfolio_box">
-							<div class="single_portfolio">
-								<img class="img-fluid w-100" src="img/portfolio/p5.jpg" alt="">
-								<div class="overlay"></div>
-								<a href="img/portfolio/p6.jpg" class="img-gal">
-									<div class="icon">
-										<span class="lnr lnr-cross"></span>
-									</div>
-								</a>
-							</div>
-							<div class="short_info">
-								<h4><a href="portfolio-details.html">multiply fowl</a></h4>
-								<p>Animated, portfolio</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 all upcoming following">
-						<div class="portfolio_box">
-							<div class="single_portfolio">
-								<img class="img-fluid w-100" src="img/portfolio/p7.jpg" alt="">
-								<div class="overlay"></div>
-								<a href="img/portfolio/p7.jpg" class="img-gal">
-									<div class="icon">
-										<span class="lnr lnr-cross"></span>
-									</div>
-								</a>
-							</div>
-							<div class="short_info">
-								<h4><a href="portfolio-details.html">green heaven</a></h4>
-								<p>Animated, portfolio</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 all following">
-						<div class="portfolio_box">
-							<div class="single_portfolio">
-								<img class="img-fluid w-100" src="img/portfolio/p8.jpg" alt="">
-								<div class="overlay"></div>
-								<a href="img/portfolio/p8.jpg" class="img-gal">
-									<div class="icon">
-										<span class="lnr lnr-cross"></span>
-									</div>
-								</a>
-							</div>
-							<div class="short_info">
-								<h4>fly male</h4>
-								<p>Animated, portfolio</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 all upcoming">
-						<div class="portfolio_box">
-							<div class="single_portfolio">
-								<img class="img-fluid w-100" src="img/portfolio/p9.jpg" alt="">
-								<div class="overlay"></div>
-								<a href="img/portfolio/p9.jpg" class="img-gal">
-									<div class="icon">
-										<span class="lnr lnr-cross"></span>
-									</div>
-								</a>
-							</div>
-							<div class="short_info">
-								<h4><a href="portfolio-details.html">season face</a></h4>
-								<p>Animated, portfolio</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!--================End Portfolio Area =================-->
+    <div class="job">
+      <div class="when">Jan 2019 — Sep 2019</div>
+      <div>
+        <h3>DevOps Engineer · <span class="org">Zigexn Ventura</span></h3>
+        <ul>
+          <li>Migrated applications from on-premise to AWS and GCP.</li>
+          <li>Deployed workloads to Kubernetes on cloud and on-premise; improved Jenkins pipelines and alerting.</li>
+        </ul>
+        <div class="chips"><span class="chip">AWS</span><span class="chip">GCP</span><span class="chip">Kubernetes</span><span class="chip">GitLab</span><span class="chip">Terraform</span></div>
+      </div>
+    </div>
 
-	<!--================ Start Testimonial Area =================-->
-	<div class="testimonial_area section_gap_bottom">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-8 text-center">
-					<div class="main_title">
-						<h2>client say about me</h2>
-						<p>Is give may shall likeness made yielding spirit a itself togeth created after sea is in beast <br>
-							 beginning signs open god you're gathering ithe</p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="testi_slider owl-carousel">
-        			<!-- <div class="testi_item">
-        				<div class="row">
-        					<div class="col-lg-4">
-        						<img src="img/testimonials/t1.jpg" alt="">
-        					</div>
-        					<div class="col-lg-8">
-        						<div class="testi_text">
-        							<h4>Elite Martin</h4>
-									<p>Him, made can't called over won't there on divide there male fish beast own his day third seed sixth seas unto. Saw from </p>
-        						</div>
-        					</div>
-        				</div>
-        			</div> -->
-        			<!-- <div class="testi_item">
-        				<div class="row">
-        					<div class="col-lg-4">
-        						<img src="img/testimonials/t2.jpg" alt="">
-        					</div>
-        					<div class="col-lg-8">
-        						<div class="testi_text">
-        							<h4>Davil Saden</h4>
-									<p>Him, made can't called over won't there on divide there male fish beast own his day third seed sixth seas unto. Saw from </p>
-        						</div>
-        					</div>
-        				</div>
-        			</div> -->
-        			<!-- <div class="testi_item">
-        				<div class="row">
-        					<div class="col-lg-4">
-        						<img src="img/testimonials/t1.jpg" alt="">
-        					</div>
-        					<div class="col-lg-8">
-        						<div class="testi_text">
-        							<h4>Elite Martin</h4>
-									<p>Him, made can't called over won't there on divide there male fish beast own his day third seed sixth seas unto. Saw from </p>
-        						</div>
-        					</div>
-        				</div>
-        			</div> -->
-        			<!-- <div class="testi_item">
-        				<div class="row">
-        					<div class="col-lg-4">
-        						<img src="img/testimonials/t2.jpg" alt="">
-        					</div>
-        					<div class="col-lg-8">
-        						<div class="testi_text">
-        							<h4>Davil Saden</h4>
-									<p>Him, made can't called over won't there on divide there male fish beast own his day third seed sixth seas unto. Saw from </p>
-        						</div>
-        					</div>
-        				</div>
-        			</div> -->
-        			<div class="testi_item">
-        				<div class="row">
-        					<div class="col-lg-4">
-        						<img src="img/testimonials/t1.jpg" alt="">
-        					</div>
-        					<div class="col-lg-8">
-        						<div class="testi_text">
-        							<h4>Elite Martin</h4>
-									<p>Cuong knows internet very well and is also a great teacher. He teaches at the right pace that students can absorb the content and keep up with him </p>
-        						</div>
-        					</div>
-        				</div>
-        			</div>
-        			<div class="testi_item">
-        				<div class="row">
-        					<div class="col-lg-4">
-        						<img src="img/testimonials/t2.jpg" alt="">
-        					</div>
-        					<div class="col-lg-8">
-        						<div class="testi_text">
-        							<h4>Davil Saden</h4>
-									<p>Although there is a significant time difference of 11-12 hours between us it appears that we receive 16 hours daily service. I routinely receive email and support well beyond an expected time. </p>
-        						</div>
-        					</div>
-        				</div>
-        			</div>
-        		</div>
-			</div>
-		</div>
-	</div>
-	<!--================ End Testimonial Area =================-->
+    <div class="job">
+      <div class="when">Aug 2017 — Sep 2018</div>
+      <div>
+        <h3>DevOps Engineer · <span class="org">TMA Solutions</span></h3>
+        <ul>
+          <li>Deployed serverless applications (Lambda, API Gateway, DynamoDB) and maintained multi-environment servers.</li>
+          <li>Built CI/CD with Jenkins and supported production investigations.</li>
+        </ul>
+        <div class="chips"><span class="chip">AWS</span><span class="chip">Ansible</span><span class="chip">Chef</span><span class="chip">Jenkins</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-	<!--================ Start Newsletter Area =================-->
-	<section class="newsletter_area">
-		<div class="container">
-			<div class="row justify-content-center align-items-center">
-				<div class="col-lg-12">
-					<div class="subscription_box text-center">
-						<h2 class="text-uppercase text-white">get update from anywhere</h2>
-						<p class="text-white">
-							Bearing Void gathering light light his eavening unto dont afraid. 
-						</p>
-						<div class="subcribe-form" id="mc_embed_signup">
-							<form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscription relative">
-								<input name="EMAIL" placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required="" type="email">
-								<div style="position: absolute; left: -5000px;">
-									<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-								</div>
-								<button class="primary-btn hover d-inline">Get Started</button>
-								<div class="info"></div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!--================ End Newsletter Area =================-->
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow">Toolbox</div>
+    <h2>What I work with</h2>
+    <div class="grid">
+      <div class="card"><h4>Cloud</h4><div class="chips"><span class="chip">Google Cloud</span><span class="chip">AWS</span><span class="chip">Cloudflare</span></div></div>
+      <div class="card"><h4>Containers &amp; GitOps</h4><div class="chips"><span class="chip">Kubernetes</span><span class="chip">GKE</span><span class="chip">Helm</span><span class="chip">ArgoCD</span><span class="chip">Docker</span></div></div>
+      <div class="card"><h4>Infrastructure as Code</h4><div class="chips"><span class="chip">Terraform</span><span class="chip">Ansible</span></div></div>
+      <div class="card"><h4>Observability</h4><div class="chips"><span class="chip">Datadog</span><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">ELK</span></div></div>
+      <div class="card"><h4>Security</h4><div class="chips"><span class="chip">HashiCorp Vault</span><span class="chip">Wiz</span><span class="chip">IAM / least privilege</span></div></div>
+      <div class="card"><h4>Data &amp; Middleware</h4><div class="chips"><span class="chip">PostgreSQL</span><span class="chip">RabbitMQ</span><span class="chip">Kafka</span><span class="chip">Redis</span><span class="chip">Nginx</span></div></div>
+      <div class="card"><h4>CI/CD</h4><div class="chips"><span class="chip">GitHub Actions</span><span class="chip">GitLab CI</span><span class="chip">Jenkins</span></div></div>
+      <div class="card"><h4>Scripting</h4><div class="chips"><span class="chip">Bash</span><span class="chip">Python</span><span class="chip">Go</span></div></div>
+    </div>
+  </div>
+</section>
 
-	<!--================Footer Area =================-->
-	<footer class="footer_area">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-12">
-					<div class="footer_top flex-column">
-						<div class="footer_logo">
-							<a href="#">
-								<img src="img/logo.png" alt="">
-							</a>
-							<h4>Follow Me</h4>
-						</div>
-						<div class="footer_social">
-							<a href="https://www.facebook.com/cuongnd.me"><i class="fa fa-facebook"></i></a>
-							<a href="https://www.linkedin.com/in/ndcuong/"><i class="fa fa-linkedin"></i></a>
-							<a href="#"><i class="fa fa-twitter"></i></a>
-							<a href="#"><i class="fa fa-dribbble"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row footer_bottom justify-content-center">
-				<p class="col-lg-8 col-sm-12 footer-text">
-					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-			</div>
-		</div>
-	</footer>
-	<!--================End Footer Area =================-->
+<section id="certs">
+  <div class="wrap">
+    <div class="eyebrow">Certifications</div>
+    <h2>Certificates</h2>
+    <ul class="certs">
+      <li>HashiCorp Certified: Terraform Associate <span>2021</span></li>
+      <li>AWS Certified Solutions Architect – Associate <span>2020</span></li>
+      <li>CCNP Switching <span>2016</span></li>
+      <li>CCNA <span>2016</span></li>
+    </ul>
+    <p style="margin-top:22px;color:var(--muted)">B.Eng. Network &amp; Telecommunications — University of Information Technology (VNU-HCM), 2013–2017.</p>
+  </div>
+</section>
 
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/popper.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/stellar.js"></script>
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
-	<script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
-	<script src="vendors/isotope/isotope-min.js"></script>
-	<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
-	<script src="js/jquery.ajaxchimp.min.js"></script>
-	<script src="js/mail-script.js"></script>
-	<!--gmaps Js-->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-	<script src="js/gmaps.min.js"></script>
-	<script src="js/theme.js"></script>
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="eyebrow">Contact</div>
+    <h2>Let's talk infrastructure.</h2>
+    <p>The best way to reach me is LinkedIn. I'm happy to chat about Kubernetes, GitOps, reliability and cloud cost.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://www.linkedin.com/in/ndcuong" target="_blank" rel="noopener">Message me on LinkedIn</a>
+      <a class="btn" href="https://github.com/cuong-nd" target="_blank" rel="noopener">github.com/cuong-nd</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="y"></span> Cuong Nguyen Duc</span>
+    <span class="mono">built with plain HTML · hosted free</span>
+  </div>
+</footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
-
 </html>
